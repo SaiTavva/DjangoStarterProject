@@ -1,0 +1,10 @@
+{% extends 'Tollywood/index.html' %}
+{% block title %}movie edit{% endblock title %}
+{% block content %}
+
+	<form action="{% url 'updatemovie' data.id %}" method="POST">
+		{% csrf_token %}
+		<strong>{{form.as_p}}</strong>
+		<input type="submit" value="Update">
+</form>
+{% endblock content %}

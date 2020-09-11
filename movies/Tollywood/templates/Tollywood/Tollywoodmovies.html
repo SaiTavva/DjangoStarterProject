@@ -1,0 +1,33 @@
+{% extends 'Tollywood/index.html' %}
+
+
+{% load static %}
+{% block content %}
+{% for movie in data %}
+<div class="row">
+<div class="col-sm-3">
+<div class="card">
+	
+	<div class="card-header">
+		<img src="{{MEDIA_URL}}{{movie.poster.url}}" class="card-img-top" height="250px"  >
+</div>
+<div class="card-body">
+	<h3>MOVIE:{{movie.moviename}}</h3>
+	<h3 class="text-primary">hero:{{movie.heroname}}</h3>
+	<h3 class="text-primary">heroine:{{movie.heroinename}}</h3>
+	<h3 class="text-primary">director:{{movie.director}}</h3>
+	<h3 class="text-primary">producer:{{movie.producer}}</h3>
+	<h3 class="text-primary">cast:{{movie.cast}}</h3>
+    
+    <a href="{% url 'updatemovie' movie.id %}" >
+       <i class='fas fa-edit' style='font-size:30px;color:green'></i>
+      </a>
+
+<a href="{% url 'deletemovie'  movie.id %}" onclick="return confirm('Are you sure you want to delete?');">
+       <i class='fas fa-trash' style='font-size:30px;color:red'></i>
+      </a>
+     
+</div>
+</div></div></div>
+{% endfor %}
+{% endblock %}

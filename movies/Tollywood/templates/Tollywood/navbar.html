@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+
+    
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Tollywood
+      </a>
+
+      <div class="dropdown-menu">
+        {% if user.is_authenticated %}
+
+        <a class="dropdown-item" href="{% url 'addmovie' %}">Add movie</a>
+        {% endif %}
+        <a class="dropdown-item" href="{% url 'Tollywoodmovies' %}">Show movies</a>
+
+        <!-- <a class="dropdown-item" href="#">Link 3</a>
+ -->    
+    </li>
+    
+  </ul>
+
+
+<ul class="navbar-nav ml-auto">
+    
+    <li class="nav-item">
+      {% if not user.is_authenticated %}
+    
+      <a class="nav-link" href="{% url 'signup' %}">signup</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'signin' %}">signin</a>
+    </li>{% endif %}
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'profile' %}">profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">changepassword</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'signout' %}">signout</a>
+    </li>
+{% endif %}
+          </a>
+          </li>
+  </ul>
+</div>
+</nav>

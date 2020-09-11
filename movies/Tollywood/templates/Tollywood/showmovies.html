@@ -1,0 +1,53 @@
+<!-- {% extends 'Tollywood/index.html' %}
+{% block content %}
+
+<style>
+    .table-hover tbody tr:hover td,.table-hover tbody tr:hover th {background-color: lightgreen;}
+   </style>
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+	<th>S.no</th>
+<th>Movie</th>
+<th>hero</th>
+<th>heroine</th>
+<th>director</th>
+<th>producer</th>
+<th>description</th>
+{% if user.is_authenticated %}
+<th>Edit</th>
+<th>Delete</th>
+{% endif %}
+</tr></thead>
+<tbody>
+{% for i in data %}
+<tr>
+	<td>{{forloop.counter}}</td>
+	<td>{{i.movie}}</td>
+	<td>{{i.hero}}</td>
+	<td>{{i.heroine}}</td>
+	<td>{{i.director}}</td>
+	<td>{{i.producer}}</td>
+	<td>{{i.description}}</td>
+	{% if user.is_authenticated %}
+
+	<td>
+      <a href="{% url 'updatemovie' i.id %}"  title="EditMovie">
+       <i class='fas fa-edit' style='font-size:30px;color:green'></i>
+      </a>
+     </td>
+	<td>
+      <a href="{% url 'deletemovie'  i.id %}" onclick="return confirm('Are you sure you want to delete?');">
+       <i class='fas fa-trash' style='font-size:30px;color:red'></i>
+      </a>
+     </td>
+     {% endif %}
+</tr>
+{% endfor %}
+</tbody></table> 
+
+
+
+{% endblock %} -->
